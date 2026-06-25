@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASIAN HOME SERVICES – Shivamoga</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:"Poppins",sans-serif;
+      background:#fafafa;
+      color:#333;
+      scroll-behavior:smooth;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:90%;max-width:1200px;margin:0 auto;padding:15px 0}
+
+    nav{
+      position:fixed;top:0;left:0;width:100%;
+      background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.08);
+      z-index:1000;
+    }
+    .navbar{
+      display:flex;justify-content:space-between;align-items:center;padding:12px 0;
+    }
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{width:45px;height:45px;border-radius:10px}
+    .logo span{font-size:1.4em;font-weight:600;color:#00bfa5}
+    .location select{
+      padding:6px 10px;border:1px solid #ccc;border-radius:6px;
+      outline:none;font-size:.9em;cursor:pointer;
+    }
+    .btn-primary{
+      padding:8px 20px;background:#00bfa5;color:#fff;
+      border-radius:25px;font-weight:500;border:none;cursor:pointer;
+    }
+
+    .hero{
+      background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.5)),
+      url('https://images.unsplash.com/photo-1617957743098-5f8a4c32c6b7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color:#fff;text-align:center;padding:180px 20px 120px;margin-top:70px;
+      border-bottom-left-radius:40px;border-bottom-right-radius:40px;
+      box-shadow:0 6px 20px rgba(0,0,0,.2);
+    }
+    .hero h1{font-size:2.8em;margin-bottom:.4em;font-weight:600}
+
+    #services h2{text-align:center;font-size:2em;font-weight:600;margin:60px 0 20px;color:#222}
+    .services{
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:25px;margin-top:20px;
+    }
+    .service-card{
+      background:#fff;border-radius:16px;padding:30px 20px;text-align:center;
+      box-shadow:0 4px 14px rgba(0,0,0,0.08);
+      cursor:pointer;transition:.3s;
+    }
+    .service-card img{max-width:90px;margin-bottom:15px}
+
+    /* MODALS */
+    .modal{
+      display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+      background:rgba(0,0,0,.6);z-index:2000;justify-content:center;align-items:center;
+    }
+    .modal.active{display:flex;}
+    .modal-content{
+      background:#fff;padding:30px 40px;border-radius:16px;max-width:400px;width:90%;
+      box-shadow:0 8px 25px rgba(0,0,0,.2);
+      position:relative;text-align:center;
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .modal-content input, .modal-content select{
+      width:100%;padding:12px;border:1px solid #ccc;
+      border-radius:10px;outline:none;font-size:1em;
+    }
+    .close-btn{
+      background:none;border:none;font-size:1.5em;position:absolute;top:15px;right:20px;
+      cursor:pointer;
+    }
+    .submit-btn{
+      background:#00bfa5;color:#fff;border:none;padding:12px;
+      border-radius:10px;font-size:1.1em;cursor:pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container navbar">
+      <div class="logo">
+        <img src="C:\Users\keshav\Downloads\home.jpg">
+        <span>ASIAN HOME SERVICES</span>
+      </div>
+      <div class="location">
+        <select id="city">
+          <option>Shivamoga</option>
+          <option>Davanagere</option>
+          <option>Bangalore</option>
+        </select>
+      </div>
+      <button class="btn-primary" id="loginBtn">Login</button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Home services in your city</h1>
+    <p>Professional services at your doorstep.</p>
+
+    <p>                            .             </p>
+    <a href="#services" class="btn-primary">Explore Services</a>
+  </section>
+
+  <!-- SERVICE LIST -->
+  <section id="services" class="container">
+    <h2>Our Popular Services</h2>
+    <div class="services">
+
+      <div class="service-card" data-name="Women's Salon & Spa">
+        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png">
+        <h3>Women's Salon & Spa</h3>
+      </div>
+
+      <div class="service-card" data-name="Cleaning & Pest Control">
+        <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png">
+        <h3>Cleaning & Pest Control</h3>
+      </div>
+
+      <div class="service-card" data-name="Electrician, Plumber & Carpenter">
+        <img src="https://cdn-icons-png.flaticon.com/512/1021/1021189.png">
+        <h3>Electrician, Plumber & Carpenter</h3>
+      </div>
+
+      <div class="service-card" data-name="Home Painting & Makeover">
+        <img src="https://cdn-icons-png.flaticon.com/512/3577/3577429.png">
+        <h3>Home Painting & Makeover</h3>
+      </div>
+
+      <div class="service-card" data-name="AC & Appliance Repair">
+        <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png">
+        <h3>AC & Appliance Repair</h3>
+      </div>
+
+      <div class="service-card" data-name="Men’s Massage & Grooming">
+        <img src="https://cdn-icons-png.flaticon.com/512/3798/3798968.png">
+        <h3>Men’s Massage & Grooming</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeLogin">&times;</button>
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Enter email or phone">
+      <input type="password" id="password" placeholder="Enter password">
+      <button class="submit-btn" id="submitLogin">Login</button>
+    </div>
+  </div>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeBooking">&times;</button>
+      <h2 id="bookingTitle">Book Service</h2>
+
+      <input type="text" id="selectedService" readonly style="background:#eee">
+
+      <select id="bookingService">
+        <option value="">Select Service Type</option>
+        <option>Basic Service</option>
+        <option>Premium Service</option>
+        <option>Deep Clean</option>
+        <option>Repair Work</option>
+      </select>
+
+      <input type="date" id="bookingDate">
+      <input type="time" id="bookingTime">
+      <input type="text" id="bookingName" placeholder="Your name">
+      <input type="text" id="bookingPhone" placeholder="Phone number">
+
+      <button class="submit-btn" id="confirmBooking">Confirm Booking</button>
+    </div>
+  </div>
+
+  <script>
+
+    /* LOGIN SYSTEM */
+    const loginBtn = document.getElementById('loginBtn');
+    const loginModal = document.getElementById('loginModal');
+    const closeLogin = document.getElementById('closeLogin');
+
+    loginBtn.onclick = () => loginModal.classList.add('active');
+    closeLogin.onclick = () => loginModal.classList.remove('active');
+
+    document.getElementById('submitLogin').onclick = () => {
+      if (!username.value || !password.value) {
+        alert("Fill all fields!");
+        return;
+      }
+      alert("Login Successful!");
+      loginModal.classList.remove('active');
+    };
+
+    /* BOOKING MODAL */
+    const bookingModal = document.getElementById("bookingModal");
+    const closeBooking = document.getElementById("closeBooking");
+
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('click', () => {
+        
+        let serviceName = card.dataset.name;
+
+        document.getElementById("bookingTitle").innerText = "Book: " + serviceName;
+        document.getElementById("selectedService").value = serviceName;
+
+        bookingModal.classList.add("active");
+      });
+    });
+
+    closeBooking.onclick = () => bookingModal.classList.remove("active");
+
+    /* FINAL WHATSAPP BOOKING SYSTEM */
+    document.getElementById("confirmBooking").onclick = () => {
+
+      let selected = selectedService.value;
+      let s = bookingService.value;
+      let d = bookingDate.value;
+      let t = bookingTime.value;
+      let n = bookingName.value;
+      let ph = bookingPhone.value;
+      let city = document.getElementById("city").value;
+
+      if (!selected || !s || !d || !t || !n || !ph){
+        alert("Please fill all fields!");
+        return;
+      }
+
+      let whatsappNumber = "7022733483";   // CHANGE TO YOUR NUMBER
+
+      let msg =
+        "📌 *New Booking Request* %0A" +
+        "--------------------------------%0A" +
+        "🛠 *Service:* " + selected + "%0A" +
+        "🔧 *Type:* " + s + "%0A" +
+        "📅 *Date:* " + d + "%0A" +
+        "⏰ *Time:* " + t + "%0A" +
+        "👤 *Name:* " + n + "%0A" +
+        "📞 *Phone:* " + ph + "%0A" +
+        "🌍 *City:* " + city + "%0A" +
+        "--------------------------------%0A" +
+        "Thank you for choosing Asian Home Services!";
+
+      let url = "https://wa.me/" + whatsappNumber + "/?text=" + msg;
+
+      window.open(url, "_blank");
+      bookingModal.classList.remove("active");
+    };
+
+  </script>
+
+</body>
+</html>
